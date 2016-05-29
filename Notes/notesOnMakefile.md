@@ -21,6 +21,25 @@ $(OBJS):$(SRCS)
 clean:
         rm -rf $(OBJS) # -r: --recursive, remove the contents of directories recursively; -f: --force, ignore nonexistent files, never prompt
 ```
+
+## For CS162 HW0 3.1 
+只需要 compile c文件即可
+```shell
+TARGET = main
+SRCS = main.c test.c wc.c
+OBJS = $(SRCS:.c=.o)
+
+CC=gcc
+CFLAGS=-Wall -std=gnu99
+
+$(OBJS):$(SRCS)
+        $(CC) -c $(SRCS)
+
+clean:
+        rm -rf $(OBJS)
+```
+
+
 ## Notes
 1. Makefile有三个非常有用的变量。分别是$@，$^，$<代表的意义分别是：$@--目标文件，$^--所有的依赖文件，$<--第一个依赖文件。
 2. %.o:%.c 表示把所有.c文件都编译成 .o
